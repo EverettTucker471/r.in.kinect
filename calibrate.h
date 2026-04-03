@@ -7,10 +7,10 @@
 
 /** Maximum distance between points of the same cluster
  *  in Meters, used in bbox calibration */
-const double MAX_CLUSTER_DISTANCE = 0.015;
+const double MAX_CLUSTER_DISTANCE = 0.01;
 /** Minimum proportion of the environment that you expect 
  *  belongs to the terrain model, used for bbox calibration. */
-const double TERRAIN_PROPORTION = 0.35;
+const double TERRAIN_PROPORTION = 0.15;
 
 
 inline double getAngle(const Eigen::Vector3f &v1, const Eigen::Vector3f &v2, const bool in_degree)
