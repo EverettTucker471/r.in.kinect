@@ -15,6 +15,25 @@ EXTRA_CFLAGS = -Wall -g -std=c++20 -march=native -Wno-deprecated -O0 $(VECT_CFLA
 LDFLAGS += -L/usr/local/lib -L/usr/lib $(ORBBEC_LIB_PATH)
 include $(MODULE_TOPDIR)/include/Make/Module.make
 
+# Omitting html compilation
+html:
+	@true
+
+%.tmp.html:
+	@true
+
+%.tmp.md:
+	@true
+
+$(HTMLDIR)/$(PGM).html:
+	@true
+
+$(MDDIR)/source/$(PGM).md:
+	@true
+
+$(MANDIR)/$(PGM).$(MANSECT):
+	@true
+
 LINK = $(CXX)
 
 ifneq ($(strip $(CXX)),)

@@ -10,7 +10,7 @@
 const double MAX_CLUSTER_DISTANCE = 0.01;
 /** Minimum proportion of the environment that you expect 
  *  belongs to the terrain model, used for bbox calibration. */
-const double TERRAIN_PROPORTION = 0.15;
+const double TERRAIN_PROPORTION = 0.20;
 
 
 inline double getAngle(const Eigen::Vector3f &v1, const Eigen::Vector3f &v2, const bool in_degree)
