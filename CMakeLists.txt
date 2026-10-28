@@ -11,7 +11,7 @@ find_M()
 find_OpenMP()
 
 # Find external dependencies specified in original Makefile
-find_package(PCL 1.11 REQUIRED COMPONENTS
+find_package(PCL 1.15 REQUIRED COMPONENTS
   common
   io
   kdtree
