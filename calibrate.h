@@ -1,6 +1,11 @@
 #ifndef CALIBRATE_H
 #define CALIBRATE_H
 
+// Fixing macro collision with PCL
+#ifdef n_
+  #undef n_
+#endif
+
 #include <math.h>
 #include <tuple>
 #include <pcl/segmentation/extract_clusters.h>

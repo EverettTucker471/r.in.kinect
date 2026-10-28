@@ -1,6 +1,11 @@
 #ifndef K4ADRIVER_H
 #define K4ADRIVER_H
 
+// Fixing macro collision with PCL
+#ifdef n_
+  #undef n_
+#endif
+
 extern "C" {
     #include <grass/gis.h>
     #include <grass/glocale.h>
