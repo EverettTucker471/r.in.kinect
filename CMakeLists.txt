@@ -58,14 +58,14 @@ build_addon(
     PCL_ALL
     Eigen3::Eigen
     Boost::system
-    ${K4A_LIB}
-    ${FLANN_STATIC_LIB}
     LIBM
   OPTIONAL_DEPENDS
     OpenMP::OpenMP_CXX
   DOCFILES
     ${PROJECT_NAME}.html
     ${PROJECT_NAME}.md)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE ${K4A_LIB} ${FLANN_STATIC_LIB})
 
 # Apply extra compile flags, export settings, and RPATH from original Makefile
 target_compile_options(${PROJECT_NAME} PRIVATE -O0 -march=native -Wno-deprecated)
