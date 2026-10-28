@@ -30,6 +30,13 @@ find_package(Boost REQUIRED COMPONENTS system)
 find_library(K4A_LIB k4a REQUIRED)
 find_library(FLANN_STATIC_LIB flann_cpp_s REQUIRED)
 
+# Create imported targets for the raw library paths
+add_library(k4a_target UNKNOWN IMPORTED)
+set_target_properties(k4a_target PROPERTIES IMPORTED_LOCATION "${K4A_LIB}")
+
+add_library(flann_target UNKNOWN IMPORTED)
+set_target_properties(flann_target PROPERTIES IMPORTED_LOCATION "${FLANN_STATIC_LIB}")
+
 # Bundle PCL into an interface target
 add_library(PCL_ALL INTERFACE IMPORTED)
 set_target_properties(PCL_ALL PROPERTIES
@@ -58,14 +65,14 @@ build_addon(
     PCL_ALL
     Eigen3::Eigen
     Boost::system
+    k4a_target
+    flann_target
     LIBM
   OPTIONAL_DEPENDS
     OpenMP::OpenMP_CXX
   DOCFILES
     ${PROJECT_NAME}.html
     ${PROJECT_NAME}.md)
-
-target_link_libraries(${PROJECT_NAME} PRIVATE ${K4A_LIB} ${FLANN_STATIC_LIB})
 
 # Apply extra compile flags, export settings, and RPATH from original Makefile
 target_compile_options(${PROJECT_NAME} PRIVATE -O0 -march=native -Wno-deprecated)
